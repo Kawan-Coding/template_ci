@@ -20,7 +20,7 @@ class Master extends CI_Controller
 
 	public function get($id = null)
 	{
-		if ($id != null) {
+		if ($id == null) {
 			$do = $this->data_model->select($this->table);
 		} else {
 			$do = $this->data_model->select_where($this->table, array("id" => $id));

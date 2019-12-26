@@ -27,7 +27,7 @@ function post_null($key)
 	if (isset($_POST[$key])) {
 		return strip_tags($_POST[$key]);
 	}else{
-		return null;
+		return "";
 	}
 }
 
