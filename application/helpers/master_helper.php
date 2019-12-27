@@ -18,7 +18,7 @@ function post($key)
 	if (isset($_POST[$key])) {
 		return strip_tags(r($_POST[$key]));
 	}else{
-		error("data input kosong");
+		error("data input $key kosong");
 	}
 }
 

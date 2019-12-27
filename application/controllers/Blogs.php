@@ -1,13 +1,18 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Master extends CI_Controller
+class Blogs extends CI_Controller
 {
-	protected $table = "table";
+	protected $table = "blogs";
 	public function create()
 	{
 		$data = array(
-			"column" => post('column'),
+			"zero_id" => post('zero_id'),
+			"title" => post('title'),
+			"content" => post('content'),
+			"pictures" => post('pictures'),
+			"author" => post('author'),
+			"status" => post('status'),
 		);
 
 		$do = $this->data_model->insert($this->table, $data);
@@ -36,7 +41,11 @@ class Master extends CI_Controller
 	public function update()
 	{
 		$data = array(
-			"column" => post('column'),
+			"zero_id" => post('zero_id'),
+			"title" => post('title'),
+			"content" => post('content'),
+			"pictures" => post('pictures'),
+			"status" => post('status'),
 		);
 
 		$where = array(

@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Customer extends CI_Controller
+class Zero extends CI_Controller
 {
-	protected $table = "customer";
+	protected $table = "zero";
 	public function create()
 	{
 		$data = array(
@@ -15,12 +15,11 @@ class Customer extends CI_Controller
 			"longitude" => post_null('longitude'),
 			"username" => post('username'),
 			"password" => password_hash(post('password'),PASSWORD_BCRYPT),
-			"role" => 'mitra',
+			"role" => 'agent',
 			"status" => 'activated',
-			"point" => 0
 		);
 		$username = $this->data_model->select_where($this->table, array('username' => post('username')));
-		if (!$username->error) {
+		if ( !$username->error) {
 			error("username is exist");
 		} else {
 			$do = $this->data_model->insert($this->table, $data);
@@ -56,7 +55,7 @@ class Customer extends CI_Controller
 			"telp" => post('telp'),
 			"latitude" => post_null('latitude'),
 			"longitude" => post_null('longitude'),
-			"password" => password_hash(post('password'), PASSWORD_BCRYPT),
+			"password" => password_hash(post('password'),PASSWORD_BCRYPT),
 		);
 
 		$where = array(
@@ -81,7 +80,7 @@ class Customer extends CI_Controller
 		if (!$do->error) {
 			success("data berhasil dihapus", $do->data);
 		} else {
-			error("datat gagal dihapus");
+			error("data gagal dihapus");
 		}
 	}
 }
