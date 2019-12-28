@@ -3,12 +3,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 function r($value)
 {
-	$search = array("'",'"');
+	$search = array("'", '"');
 	$replace = array(" ");
 	if (is_null($value)) {
 		return "";
 	}
 	return str_replace($search, $replace, $value);
+}
+
+// --------------- helper tanggal
+
+function tgl($tgl)
+{
+	$check = strtotime($tgl);
+	if ($check != false) {
+		if ($check > strtotime(date("Y-m-d H:i:s")))
+			return date("Y-m-d H:i", strtotime($tgl));
+		else {
+			error("tanggal sudah tidak bisa dipilih");
+		}
+	} else
+		error("tanggal tidak sesuai dengan ketentuan");
 }
 
 // --------------- helper inputan
@@ -17,7 +32,7 @@ function post($key)
 {
 	if (isset($_POST[$key])) {
 		return strip_tags(r($_POST[$key]));
-	}else{
+	} else {
 		error("data input $key kosong");
 	}
 }
@@ -26,7 +41,7 @@ function post_null($key)
 {
 	if (isset($_POST[$key])) {
 		return strip_tags($_POST[$key]);
-	}else{
+	} else {
 		return "";
 	}
 }
