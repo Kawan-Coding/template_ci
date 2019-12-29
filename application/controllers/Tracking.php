@@ -26,7 +26,7 @@ class Tracking extends CI_Controller
 		if ($id == null) {
 			$do = $this->data_model->select($this->table);
 		} else {
-			$do = $this->data_model->select_where($this->table, array("transaction_id" => $id));
+			$do = $this->data_model->select_one($this->table, array("transaction_id" => $id));
 		}
 
 		if (!$do->error) {

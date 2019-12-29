@@ -67,7 +67,7 @@ function error($msg)
 		array(
 			"error" => true,
 			"message" => $msg,
-			"data" => null
+			"data" => []
 		)
 	);
 	exit;

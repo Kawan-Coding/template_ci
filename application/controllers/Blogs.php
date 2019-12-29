@@ -28,7 +28,7 @@ class Blogs extends CI_Controller
 		if ($id == null) {
 			$do = $this->data_model->select($this->table);
 		} else {
-			$do = $this->data_model->select_where($this->table, array("id" => $id));
+			$do = $this->data_model->select_one($this->table, array("id" => $id));
 		}
 
 		if (!$do->error) {

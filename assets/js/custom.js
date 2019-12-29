@@ -6,3 +6,9 @@
  */
 
 "use strict";
+
+
+$('#table tfoot .table_search').each(function() {
+    var title = $(this).text();
+    $(this).html('<input type="text" class="form-control-sm" placeholder="Search ' + title + '" />');
+});
